@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.io.*;
 
 
-public class Part1Day1 {
+public class Part2Day1 {
     public static ArrayList<Integer> list = new ArrayList<>();
     public static ArrayList<Integer> list2 = new ArrayList<>();
     public static final int startingfreq = 0;
@@ -27,6 +27,13 @@ public class Part1Day1 {
         for(int i = 0; i < list.size(); i++) {
             is += list.get(i) + startingfreq;
             System.out.println(is);
+            list2.add(is);
+            Collections.sort(list2);
+            if (list2.get(i) == is) {
+                test2++;
+            }
         }
+        System.out.println(test2);
+
     }
 }
