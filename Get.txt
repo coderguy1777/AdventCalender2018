@@ -1,0 +1,53 @@
+import java.util.*;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Stack;
+import java.util.Set;
+
+public class Day5P1 {
+    private static ArrayList<String>charstorage = new ArrayList<>();
+    private static Stack<String>charstack = new Stack<>();
+    private static ArrayList<String>charrepeats = new ArrayList<>();
+    private static Set<String>listset;
+    private static ArrayList<String>lowercase = new ArrayList<>();
+    private static ArrayList<String>uppercase = new ArrayList<>();
+
+    public static void filescanner () throws IOException {
+        Scanner scan = new Scanner(new File("Data"));
+        while(scan.hasNextLine()) {
+            String scanline = scan.nextLine();
+            char[] sentences = scanline.toCharArray();
+            for (int i = 0; i < sentences.length; i++) {
+                String x = String.valueOf(sentences[i]);
+                charstorage.add(x);
+            }
+        }
+        scan.close();
+        sortingmethod();
+    }
+
+    public static void sortingmethod() {
+        for (int i = 0; i < charstorage.size(); i++) {
+            for (int j = i + 1; j < charstorage.size(); j++) {
+                listset = new LinkedHashSet<String>(charstorage);
+                charstorage.clear();
+                charstorage.addAll(listset);
+            }
+        }
+        loweranduppersorting();
+    }
+
+    public static void loweranduppersorting() {
+        char test = 'A';
+        char test2 = 'a';
+        for(int i = 0; i < charstorage.size(); i++) {
+            lowercase.add(charstorage.get(i).toUpperCase());
+            uppercase.add(charstorage.get(i).toLowerCase());
+        }
+    }
+
+
+    public static void main(String[]args) throws IOException {
+        filescanner();
+    }
+}
