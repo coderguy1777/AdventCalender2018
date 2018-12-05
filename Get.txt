@@ -49,5 +49,7 @@ public class Day5P1 {
 
     public static void main(String[]args) throws IOException {
         filescanner();
+        System.out.println(lowercase);
+        System.out.println(uppercase);
     }
 }
